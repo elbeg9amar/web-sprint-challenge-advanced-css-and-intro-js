@@ -232,12 +232,16 @@ function getArtistByIndex(array, index) {
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/* Code here */){
-
-  /* Code here */
+function get20s(arr, year){
+  let getS = []
+  for (i = 0 ; i< arr.length; i++){
+    if (1900 < arr[i].years){
+      getS.push(arr[i].name)
+    }
+  }return getS;
 
 }
-
+console.log(get20s(artists, 2000));
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
  *     (1) artists array
@@ -249,10 +253,10 @@ function get20s(/* Code here */){
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-function removeArtist(/*code here*/) {
-    /* code here */
-  }
-  
+function removeArtist(arr, index) {
+  delete arr[index]
+}
+  console.log(removeArtist(artists, 7));
  
 
 /**
@@ -268,12 +272,18 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist(/* Code here */){
-
-    /* Code here */
-
-  }
-
+function addArtist(arr, newArr){
+  arr.push(newArr)
+  return arr;
+}
+newArr = {'id': 20,
+'name': 'Meee', 
+'years': '1996 - 2020',
+'genre': 'Web Design', 
+'nationality': 'Mongolia',
+'bio': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sem nulla, rutrum vitae placerat ac, efficitur ac purus. Vivamus commodo elementum augue sit amet malesuada. Donec eget rutrum tellus, sit amet volutpat elit.'
+};
+console.log(addArtist(artists, newArr))
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
     (1) artists array 
@@ -282,7 +292,7 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
+function lotsOfArt(){
 
   /* Code here */
 
