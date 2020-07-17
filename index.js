@@ -306,14 +306,18 @@ function lotsOfArt (arr) {
   }
   return lotArt;
 };
-
-//  arr.map(artist=> {
-//    if(artist.paintings > 100){
-//      return artist.name;
-//    }
-//  })
-// }
 console.log(lotsOfArt(artists))
+
+function lotsOfArtMap(arr){
+  let lot = [];
+ arr.map(artist=> {
+   if(artist.paintings > 100){
+     lot.push(artist.name);
+   }
+ })
+ return lot;
+}
+console.log(lotsOfArtMap(artists))
 
 
 
@@ -359,3 +363,33 @@ function randomize(/* Code here */){
 
 
  /* STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */
+ function get20s(arr){
+  let getS = []
+  for (let i = 0 ; i < arr.length; i++){
+    let bornYear = arr[i].years.substring(0,4)
+    let deathYear = arr[i].years.substring(7,11)
+    let bornYearNum = Number(bornYear);
+    let deathYearNum = Number(deathYear)
+    if (bornYearNum >= 1900 && deathYearNum <=2000){
+      getS.push(arr[i].name)
+    }
+  }return getS
+}
+console.log(get20s(artists));
+
+function filterGet20s(arr){
+  let getS = [];
+  arr.filter(artist => {
+    let bornYear = artist.years.substring(0,4)
+    let deathYear = artist.years.substring(7,11)
+    let bornYearNum = Number(bornYear);
+    let deathYearNum = Number(deathYear);
+    if (bornYearNum >=1900 && deathYearNum <= 2000){  
+      getS.push(artist.name) 
+    }else { 
+      getS
+    }
+  })
+  return getS;
+} 
+console.log(filterGet20s(artists));
